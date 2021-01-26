@@ -57,9 +57,9 @@ class FixedStack:
         self.ptr = 0 #스택의 포인터 값을 0으로 함으로 빈 스택을 만든다.
 
 
-"""find() 는 스택 main body의 배열 stk안에 value와 값이 같이 데이터가 포함되어 있는지 확인하고, 위치를 검색
-   count()는 스택에 쌓여있는 데이터(value)의 개수를 구하여 반환
-   __contain__()는 tmxordp 데이터(value)가 있는지 판단. 있으면 True, 그렇지 않으면 False를 반환. 판단연산자 in을 사용하여 수행가능"""
+    """find() 는 스택 main body의 배열 stk안에 value와 값이 같이 데이터가 포함되어 있는지 확인하고, 위치를 검색
+    count()는 스택에 쌓여있는 데이터(value)의 개수를 구하여 반환
+    __contain__()는 tmxordp 데이터(value)가 있는지 판단. 있으면 True, 그렇지 않으면 False를 반환. 판단연산자 in을 사용하여 수행가능"""
 
     def find(self, value: Any) -> Any:
         for i in range(self.ptr -1, -1, -1): #꼭대기 부터 선형검색

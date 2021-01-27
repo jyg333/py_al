@@ -40,12 +40,12 @@ class FixedStack:
         if self.is_full(): #case stack is full
             raise FixedStack.Full
         self.stk[self.ptr] = value
-        self.str += 1
+        self.ptr += 1
 
     def pop(self) -> Any:
         if self.is_empty():
             raise FixedStack.Empty
-        self.str -= 1
+        self.ptr -= 1
         return self.stk[self.ptr]
 
     def peek(self) -> Any:
@@ -63,7 +63,7 @@ class FixedStack:
 
     def find(self, value: Any) -> Any:
         for i in range(self.ptr -1, -1, -1): #꼭대기 부터 선형검색
-            if self.str[i] == value:
+            if self.stk[i] == value:
                 return i
             return -1
 
@@ -74,7 +74,7 @@ class FixedStack:
                 c += 1
         return c
 
-    def __contain__(self, value: Any) -> bool:
+    def __contains__(self, value: Any) -> bool:
         return self.count(value)
 
     def dump(self) ->None: #dump: output all of data in stack from top to bottom

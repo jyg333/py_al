@@ -28,7 +28,7 @@ class binarySearchingTree:
             else:
                 p = p.right
 # Insert Node: Be careful that after insert Node, Tree have to maintain binary tree search conditions
-# 노드를 삽입 할 위치를 찾은 뒤 수행
+# 노드를 삽입 할 위치를 찾은 뒤 수행한다
     def add(self, key : Any, value: Any) -> bool:
 
         def add_node(node: Node, key: Any, value:Any) -> None:

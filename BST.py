@@ -21,7 +21,7 @@ class binarySearchingTree:
         while True:
             if p is None:
                 return None
-            if p == p.key: #key와 노드 p가 같으면
+            if key == p.key: #key와 노드 p가 같으면
                 return p.value
             elif key < p.key:
                 p = p.left
@@ -29,13 +29,13 @@ class binarySearchingTree:
                 p = p.right
 # Insert Node: Be careful that after insert Node, Tree have to maintain binary tree search conditions
 # 노드를 삽입 할 위치를 찾은 뒤 수행
-    def add(self, key : Any):
+    def add(self, key : Any, value: Any) -> bool:
 
-        def add_node(node: Node, key: Any, value:Any) -> bool:
+        def add_node(node: Node, key: Any, value:Any) -> None:
             """node를 root로 하는 subTree key가 key , 값이 value인 노드를 삽입"""
             if key == node.key: #key값이 이미 존재
                 return False
-            elif key < node.key: #
+            elif key < node.key:
                 if node.left is None:
                     node.left = Node(key, value, None, None)
                 else: # 왼쪽 노드에 자식노드가 이미 존재하면, 주목노드를 왼쪽 자식으로 이동
@@ -47,11 +47,11 @@ class binarySearchingTree:
                     add_node(node.right, key, value)
             return True
 
-            if self.root is None: #Tree is empty ,key ,value, left right is None
-                self.root = Node(key, value, None, None)
-                return True
-            else: #Tree is not empty, 내부함수 add_node()를 호출하여 노드 삽입
-                return add_node(self.root, key, value)
+        if self.root is None: #Tree is empty ,key ,value, left right is None
+            self.root = Node(key, value, None, None)
+            return True
+        else: #Tree is not empty, 내부함수 add_node()를 호출하여 노드 삽입
+            return add_node(self.root, key, value)
 
     def remove(self, key: Any) -> bool:
         p = self.root
@@ -140,7 +140,7 @@ class binarySearchingTree:
             p = p.right
         return p.key
 
-#키를 내림차순으로 출력하는
+
 
 
 
